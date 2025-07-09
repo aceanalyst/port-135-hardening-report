@@ -18,7 +18,7 @@ This report documents how I implemented **firewall-based restrictions** to block
 ```bash
 nmap -Pn -p 135 172.20.10.12
 
-Result:
+## Result:
 
 135/tcp open  msrpc
 
