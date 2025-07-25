@@ -21,40 +21,40 @@ nmap -Pn -p 135 172.20.10.12
 135/tcp open  msrpc
 ```
 ## Firewall Configuration Steps
+```
+1. Open wf.msc → Inbound Rules → New Rule
 
-Open wf.msc → Inbound Rules → New Rule
+2. Select Port, then TCP and enter 135
 
-Select Port, then TCP and enter 135
+3. Choose Block the connection
 
-Choose Block the connection
-
-Apply to Domain, Private, and Public
+4. Apply to Domain, Private, and Public
 
 On the Scope tab:
 
-Remote IP: 0.0.0.0/0 (block all external traffic)
+a. Remote IP: 0.0.0.0/0 (block all external traffic)
 
-Name the rule: Block Port 135 - RPC
+b. Name the rule: Block Port 135 - RPC
 
-Rebooted system to enforce the rule.
-
-Verification Scan (After Blocking)
-
+c. Rebooted system to enforce the rule.
+```
+## Verification Scan (After Blocking)
+``
 nmap -Pn -p 135 172.20.10.12
-
-Expected Result:
-
+``
+## Expected Result:
+```
 135/tcp filtered
-
+```
 | Benefit                  | Description                                          |
 | ------------------------ | ---------------------------------------------------- |
 | ✅ Reduced Attack Surface | Removed a common malware entry point                 |
 | ✅ RPC Access Restricted  | Prevented external scanning and DCOM-related attacks |
 | ✅ Windows Hardening      | Safer system in public or untrusted networks         |
 
-Notes
-Port 135 is still used internally by Windows
+## Notes
+1. Port 135 is still used internally by Windows
 
-Firewall blocks limit external access only
+2. Firewall blocks limit external access only
 
-Disabling the service entirely may break Windows features
+3. Disabling the service entirely may break Windows features
