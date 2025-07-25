@@ -20,7 +20,8 @@ nmap -Pn -p 135 172.20.10.12
 
 135/tcp open  msrpc
 ```
- Firewall Configuration Steps
+## Firewall Configuration Steps
+
 Open wf.msc → Inbound Rules → New Rule
 
 Select Port, then TCP and enter 135
